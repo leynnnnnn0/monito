@@ -1,5 +1,6 @@
 <div>
     <x-navigation />
+    
     <div class="p-5 space-y-3 2xl:px-80 lg:px-24">
         <div class="bg-primary-gradient rounded-lg flex-1 flex md:gap-2 md:justify-center md:h-fit md:flex-row-reverse flex-col">
             <section class="flex-1 w-auto md:m-0 m-5 flex flex-col md:px-3 md:items-center justify-center sm:items-center">
