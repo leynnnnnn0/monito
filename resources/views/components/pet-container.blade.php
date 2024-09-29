@@ -1,4 +1,4 @@
-<div class="bg white h-54 p-2 shadow-lg space-y-3 rounded-lg">
+<div class="bg white h-54 p-2 shadow-sm space-y-3 rounded-lg">
     <img class="h-32 w-full" src="{{ Vite::asset('resources/images/pet.svg')}}" alt="pet">
     <div class="flex flex-col">
         <h1 class="text-sm font-semibold">Pomeranian White</h1>
