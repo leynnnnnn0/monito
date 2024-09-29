@@ -1,8 +1,11 @@
 <?php
 
+use App\Livewire\Category;
+use App\Livewire\HomePage;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
+Route::get('/', HomePage::class)->name('home-page');
+Route::get('/category', Category::class)->name('category');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -12,4 +15,4 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

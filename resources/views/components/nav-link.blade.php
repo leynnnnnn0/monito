@@ -1,3 +1,1 @@
-@props(['active'])
-
-<a href="" class="text-sm font-bold text-text-primary">{{ $slot}}</a>
+<a {{ $attributes }} class="text-sm font-bold text-text-primary" wire:navigate>{{ $slot}}</a>
