@@ -23,7 +23,7 @@
             </div>
             <a href="" class="text-sm md:flex px-3 items-center justify-center border border-text-primary text-text-primary py-1 rounded-full hidden">View more <x-phosphor-caret-right class="h-[20px]" /></a>
         </section>
-        <section class="grid gap-2 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2">
+        <section class="grid gap-2 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2">
             <x-pet-container />
             <x-pet-container />
             <x-pet-container />

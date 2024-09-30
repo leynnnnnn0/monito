@@ -42,7 +42,7 @@ class PetResource extends Resource
                             ->required()
                             ->minLength(2),
 
-                        DatePicker::make(name: 'age')
+                        DatePicker::make(name: 'date_of_birth')
                             ->native(false)
                             ->required(),
 
@@ -77,7 +77,7 @@ class PetResource extends Resource
                             ->inline()
                             ->required(),
 
-                        TextInput::make('vaccinated_details'),
+                        TextInput::make('vaccination_details'),
 
                         TextInput::make('special_care_needs'),
 

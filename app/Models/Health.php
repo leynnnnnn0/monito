@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class Health extends Model
 {
@@ -16,6 +17,13 @@ class Health extends Model
         'vaccination_details',
         'special_care_needs',
     ];
+
+    public function casts()
+    {
+        return [
+            'vaccinated' => 'boolean'
+        ];
+    }
 
     public function pet()
     {

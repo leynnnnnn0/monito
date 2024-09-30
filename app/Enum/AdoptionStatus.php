@@ -9,6 +9,7 @@ enum AdoptionStatus: string
 
     public static function values()
     {
-        return array_column(self::cases(), 'value');
+        $data = array_column(self::cases(), 'value');
+        return array_combine($data, $data);
     }
 }

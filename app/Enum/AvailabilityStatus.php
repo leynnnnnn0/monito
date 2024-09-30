@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-enum AvailabilityStatus : string
+enum AvailabilityStatus: string
 {
     case AVAILABLE = 'Available';
     case SOLD = 'Sold';
@@ -10,6 +10,7 @@ enum AvailabilityStatus : string
 
     public static function values()
     {
-        return array_column(self::cases(), 'value');
+        $data = array_column(self::cases(), 'value');
+        return array_combine($data, $data);
     }
 }

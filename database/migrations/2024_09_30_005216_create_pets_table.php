@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('breed');
-            $table->integer('age');
-            $table->enum('gender', array_column(Gender::cases(), 'name'));
+            $table->date('date_of_birth');
+            $table->enum('gender', Gender::values());
             $table->string('color');
-            $table->enum('size', array_column(Size::cases(), 'name'));
+            $table->enum('size', Size::values());
             $table->decimal('weight', 5, 2);
             $table->timestamps();
         });

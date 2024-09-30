@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enum\Gender;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,12 +14,13 @@ class Pet extends Model
     protected $fillable = [
         'name',
         'breed',
-        'age',
         'gender',
+        'date_of_birth',
         'color',
         'size',
         'weight',
     ];
+
 
     public function health()
     {

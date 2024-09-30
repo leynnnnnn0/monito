@@ -12,7 +12,6 @@ class AdditionalInfo extends Model
     protected $fillable = [
         'pet_id',
         'description',
-        'microchip_number',
         'previous_owner',
     ];
 
