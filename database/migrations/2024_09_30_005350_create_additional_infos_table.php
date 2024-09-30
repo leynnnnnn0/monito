@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pet_id')->constrained('pets')->onDelete('cascade');
             $table->text('description')->nullable();
-            $table->string('image')->nullable();
             $table->string('microchip_number')->nullable();
             $table->string('previous_owner')->nullable();
             $table->timestamps();

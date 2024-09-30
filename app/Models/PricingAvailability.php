@@ -15,4 +15,10 @@ class PricingAvailability extends Model
         'adoption_status',
         'date_added',
     ];
+
+    public function pet()
+    {
+        return $this->belongsTo(Pet::class);
+    }
+
 }

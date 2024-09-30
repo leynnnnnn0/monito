@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('pet_id')->constrained('pets')->onDelete('cascade');
             $table->decimal('price', 8, 2);
-            $table->enum('availability_status', AvailabilityStatus::cases());
-            $table->enum('adoption_status', AdoptionStatus::cases());
+            $table->enum('availability_status', array_column(AvailabilityStatus::cases(), 'name'));
+            $table->enum('adoption_status', array_column(AdoptionStatus::cases(), 'name'));
             $table->timestamp('date_added')->useCurrent();
             $table->timestamps();
         });

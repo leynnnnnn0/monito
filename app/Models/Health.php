@@ -16,4 +16,9 @@ class Health extends Model
         'vaccination_details',
         'special_care_needs',
     ];
+
+    public function pet()
+    {
+        return $this->belongsTo(Pet::class);
+    }
 }

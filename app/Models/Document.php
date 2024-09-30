@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AdditionalInfo extends Model
+class Document extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'pet_id',
-        'description',
-        'microchip_number',
-        'previous_owner',
+        'name'
     ];
 
     public function pet()
     {
         return $this->belongsTo(Pet::class);
     }
+
 }
