@@ -8,6 +8,7 @@ use App\Enum\Gender;
 use App\Enum\Size;
 use App\Filament\Resources\PetResource\Pages;
 use App\Models\Pet;
+use Carbon\Carbon;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Radio;
@@ -20,7 +21,9 @@ use Filament\Forms\Components\Wizard\Step;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\Number;
 
 class PetResource extends Resource
 {
@@ -110,14 +113,12 @@ class PetResource extends Resource
                     Step::make('Images and Documents')->schema([
                         Repeater::make('Documents')->schema([
                             FileUpload::make('document_name')
-                                ->multiple()
                                 ->downloadable()
                                 ->directory('documents')
                         ]),
 
                         Repeater::make('Images')->schema([
                             FileUpload::make('image_name')
-                                ->multiple()
                                 ->downloadable()
                                 ->directory('images')
                         ])
@@ -131,7 +132,17 @@ class PetResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('breed'),
+                TextColumn::make('gender'),
+                TextColumn::make('date_of_birth')
+                    ->formatStateUsing(fn($state) => Carbon::parse($state)->format('F d, Y')),
+                TextColumn::make('pricingAvailability.price')
+                    ->label('Price')
+                    ->formatStateUsing(fn($state) => Number::format($state, 2)),
+                TextColumn::make('pricingAvailability.availability_status')
+                    ->label('Availability')
+                    ->color(fn($state) => AvailabilityStatus::from($state)->getColor())
+                    ->badge()
             ])
             ->filters([
                 //
