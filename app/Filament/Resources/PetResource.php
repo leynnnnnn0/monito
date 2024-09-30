@@ -110,11 +110,15 @@ class PetResource extends Resource
                     Step::make('Images and Documents')->schema([
                         Repeater::make('Documents')->schema([
                             FileUpload::make('document_name')
+                                ->multiple()
+                                ->downloadable()
                                 ->directory('documents')
                         ]),
 
                         Repeater::make('Images')->schema([
                             FileUpload::make('image_name')
+                                ->multiple()
+                                ->downloadable()
                                 ->directory('images')
                         ])
 
