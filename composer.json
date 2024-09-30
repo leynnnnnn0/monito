@@ -9,6 +9,7 @@
         "brunocfalcao/blade-feather-icons": "^4.0",
         "codeat3/blade-phosphor-icons": "^2.2",
         "faisal50x/blade-ionicons": "^1.0",
+        "filament/filament": "3.2.57",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
@@ -39,7 +40,8 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
