@@ -9,16 +9,21 @@ use App\Enum\Size;
 use App\Filament\Resources\PetResource\Pages;
 use App\Models\Pet;
 use Carbon\Carbon;
+use Filament\Actions\Action;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
+use Filament\Infolists\Components\Tabs;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Wizard;
 use Filament\Forms\Components\Wizard\Step;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\Grid;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -148,12 +153,40 @@ class PetResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\DeleteAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
+            ]);
+    }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Tabs::make('Tabs')
+                    ->tabs([
+                        Tabs\Tab::make('View Information about pet')
+                            ->schema([
+                                TextEntry::make('name'),
+                                TextEntry::make('breed'),
+                                TextEntry::make('gender'),
+                                TextEntry::make('date_of_birth'),
+                                TextEntry::make('color'),
+                                TextEntry::make('size'),
+                                TextEntry::make('weight'),
+                            ])->columns(2),
+                        Tabs\Tab::make('Edit pet')
+                            ->schema([
+                               //Still working on this
+                            ]),
+                    ])
+                    ->activeTab(1)
+                    ->columnSpanFull()
             ]);
     }
 
@@ -170,6 +203,8 @@ class PetResource extends Resource
             'index' => Pages\ListPets::route('/'),
             'create' => Pages\CreatePet::route('/create'),
             'edit' => Pages\EditPet::route('/{record}/edit'),
+            'delete' => Pages\DeletePets::route('/{record}/delete'),
+            'view' => Pages\ViewPet::route('/{record}'),
         ];
     }
 }
