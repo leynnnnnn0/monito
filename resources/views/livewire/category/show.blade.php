@@ -14,7 +14,7 @@
                 <strong clasas="text-3xl">{{ $pet->breed}}</strong>
                 <span class="font-bold text-text-primary">${{Number::format($pet->pricingAvailability->price, 2) }}</span>
                 <div class="flex items-center gap-2">
-                    <button class="w-full mt-3 rounded-full text-text-primary sm:text-medium border border-text-primary px-6 py-2 xl:text-lg md:text-xs text-sm">
+                    <button wire:click="addToCart('{{$pet->id}}')" class="w-full mt-3 rounded-full text-text-primary sm:text-medium border border-text-primary px-6 py-2 xl:text-lg md:text-xs text-sm">
                         Add to Cart
                     </button>
                     <button class="w-full mt-3 rounded-full text-white sm:text-medium bg-text-primary px-6 py-2 xl:text-lg md:text-xs text-sm">
