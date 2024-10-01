@@ -8,7 +8,10 @@
         <x-nav-link>About</x-nav-link>
         <x-nav-link>Contact</x-nav-link>
     </section>
-    <section class="space-x-2 md:block hidden">
+    <section class="items-center gap-2 md:flex hidden">
+        <x-nav-link href="/my-cart">
+            <x-bi-cart-fill class="text-text-primary font-bold mr-4" />
+        </x-nav-link>
         <a class="text-text-primary font-bold">Register</a>
         <a class="px-4 py-1 text-white bg-text-primary font-bold rounded-full">Login</a>
     </section>
