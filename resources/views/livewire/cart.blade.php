@@ -9,32 +9,34 @@
                 <x-th>Price</x-th>
                 <x-th>Action</x-th>
             </tr>
+            @foreach ($data as $pet)
             <tr>
                 <x-td>
                     <div class="sm:flex gap-2">
-                        <img class="sm:size-16 size-8" src="{{ Vite::asset('resources/images/shiba.png')}}" alt="dog image">
+                        <img class="sm:size-16 size-8" src="{{ asset('storage/' . $pet->images[0]->name)}}" alt="dog image">
                         <section class="flex flex-col">
-                            <span class="text-text-primary text-lg">Shiba Inu</span>
-                            <span class="text-gray-500 text-xs font-light">Color: Yellow & White</span>
-                            <span class="text-gray-500 text-xs font-light">Size: Large</span>
+                            <span class="text-text-primary text-lg">{{ $pet->breed}}</span>
+                            <span class="text-gray-500 text-xs font-light">Color: {{ $pet->color}}</span>
+                            <span class="text-gray-500 text-xs font-light">Size: {{ $pet->size }}</span>
                         </section>
                     </div>
                 </x-td>
                 <x-td class="sm:table-cell hidden">
-                    2 months
+                    {{ Carbon\Carbon::parse($pet->date_of_birth)->age}}
                 </x-td>
                 <x-td class="sm:table-cell hidden">
-                    Male
+                    {{ $pet->gender }}
                 </x-td>
                 <x-td>
-                    $3,400.00
+                    ${{ Number::format($pet->pricingAvailability->price, 2)}}
                 </x-td>
                 <x-td>
-                    <button>
-                        <x-bi-trash-fill class="text-text-primary size-5" />
+                    <button wire:click="removeItem('{{ $pet->id }}')">
+                        <x-bi-trash-fill class="text-red-500 size-5" />
                     </button>
                 </x-td>
             </tr>
+            @endforeach
         </table>
         <div class="w-full flex justify-end p-5 bg-gray">
             <section class="flex flex-col gap-2 w-96">
