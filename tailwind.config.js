@@ -20,6 +20,7 @@ export default {
             },
             colors: {
                 "text-primary": "#002A48",
+                "light-gray": "#FCFCFC",
             },
             fontFamily: {
                 gilroy: ["Gilroy", "sans-serif"],
