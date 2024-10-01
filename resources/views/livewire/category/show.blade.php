@@ -58,7 +58,7 @@
 
     <section class="p-2 2xl:px-80 lg:px-24">
         <h1 class="text-text-primary font-bold text-xl">See More Poppies</h1>
-        <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2">
+        <div id="paginated-show-page" class="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2">
             @foreach ($data as $pet)
             <x-pet-container :breed="$pet->breed"
                 :id="$pet->id"
@@ -66,6 +66,9 @@
                 :price="$pet->pricingAvailability->price"
                 :source="$pet->images[0]['name']" />
             @endforeach
+        </div>
+        <div class="w-full mt-5">
+            {{ $data->links(data: ['scrollTo' => 'paginated-show-page']) }}
         </div>
     </section>
     <x-partials.footer />

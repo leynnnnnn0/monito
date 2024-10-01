@@ -10,7 +10,7 @@ class HomePage extends Component
     public $data;
     public function mount()
     {
-        $this->data = Pet::with('pricingAvailability', 'images')->get();
+        $this->data = Pet::with('pricingAvailability', 'images')->take(10)->get();
     }
     public function render()
     {

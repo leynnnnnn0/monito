@@ -21,9 +21,9 @@
                 <span class="font-medium">What's new?</span>
                 <h1 class="text-text-primary font-semibold text-lg">Take A Look At Some of Our Pets</h1>
             </div>
-            <a href="" class="text-sm md:flex px-3 items-center justify-center border border-text-primary text-text-primary py-1 rounded-full hidden">View more <x-phosphor-caret-right class="h-[20px]" /></a>
+            <a href="/category" class="text-sm md:flex px-3 items-center justify-center border border-text-primary text-text-primary py-1 rounded-full hidden">View more <x-phosphor-caret-right class="h-[20px]" /></a>
         </section>
-        <section class="grid gap-2 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2">
+        <section class="grid gap-2 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2">
             @foreach ($data as $pet)
             <x-pet-container :breed="$pet->breed"
                 :id="$pet->id"
@@ -32,7 +32,7 @@
                 :source="$pet->images[0]['name']" />
             @endforeach
         </section>
-        <a href="" class="md:hidden flex w-full items-center justify-center border border-text-primary text-text-primary py-2 rounded-full">View more <x-phosphor-caret-right class="h-[20px]" /></a>
+        <a href="/category" class="md:hidden flex w-full items-center justify-center border border-text-primary text-text-primary py-2 rounded-full">View more <x-phosphor-caret-right class="h-[20px]" /></a>
     </section>
 
     <section class="sm:min-h-[400px] min-h-screen p-5 flex 2xl:px-80 lg:px-24">

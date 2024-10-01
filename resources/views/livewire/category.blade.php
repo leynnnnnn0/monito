@@ -20,7 +20,7 @@
             </button>
         </div>
 
-        <div class="grid grid-cols-2 gap-5 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3">
+        <div id="#paginated-data" class="grid grid-cols-2 gap-5 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3">
             @foreach ($data as $pet)
             <x-pet-container :breed="$pet->breed"
                 :id="$pet->id"
@@ -29,6 +29,7 @@
                 :source="$pet->images[0]['name']" />
             @endforeach
         </div>
+        {{ $data->links(data: ['scrollTo' => '#paginated-data']) }}
     </div>
 
     <x-partials.footer />

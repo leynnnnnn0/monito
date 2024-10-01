@@ -8,15 +8,15 @@ use Livewire\Component;
 class Show extends Component
 {
     public $pet;
-    public $data;
 
     public function mount($id)
     {
         $this->pet = Pet::with('pricingAvailability', 'additionalInfo', 'health', 'images')->findOrFail($id);
-        $this->data = Pet::all();
     }
     public function render()
     {
-        return view('livewire.category.show');
+        return view('livewire.category.show', [
+            'data' => Pet::with('pricingAvailability', 'images')->paginate(10)
+        ]);
     }
 }
