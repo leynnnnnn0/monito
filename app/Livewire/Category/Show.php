@@ -8,10 +8,12 @@ use Livewire\Component;
 class Show extends Component
 {
     public $pet;
+    public $data;
 
     public function mount($id)
     {
         $this->pet = Pet::with('pricingAvailability', 'additionalInfo', 'health', 'images')->findOrFail($id);
+        $this->data = Pet::all();
     }
     public function render()
     {

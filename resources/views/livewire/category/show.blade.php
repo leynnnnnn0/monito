@@ -9,7 +9,7 @@
                 @endforeach
             </section>
         </section>
-        <section class="space-y-2 min-w-[400px]">
+        <section class="space-y-2 md:w-1/2 w-full">
             <section class="flex flex-col">
                 <strong clasas="text-3xl">{{ $pet->breed}}</strong>
                 <span class="font-bold text-text-primary">${{Number::format($pet->pricingAvailability->price, 2) }}</span>
@@ -59,14 +59,13 @@
     <section class="p-2 2xl:px-80 lg:px-24">
         <h1 class="text-text-primary font-bold text-xl">See More Poppies</h1>
         <div class="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2">
-            <x-pet-container />
-            <x-pet-container />
-            <x-pet-container />
-            <x-pet-container />
-            <x-pet-container />
-            <x-pet-container />
-            <x-pet-container />
-            <x-pet-container />
+            @foreach ($data as $pet)
+            <x-pet-container :breed="$pet->breed"
+                :id="$pet->id"
+                :gender="$pet->gender"
+                :price="$pet->pricingAvailability->price"
+                :source="$pet->images[0]['name']" />
+            @endforeach
         </div>
     </section>
     <x-partials.footer />

@@ -17,7 +17,9 @@ class PricingAvailabilityFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'price' => $this->faker->numberBetween(5000, 20000),
+            'availability_status' => 'Available',
+            'adoption_status' => $this->faker->randomElement(['For Sale', 'For Adoption']),
         ];
     }
 }

@@ -17,7 +17,8 @@ class AdditionalInfoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'description' => $this->faker->sentence(),
+            'previous_owner' => $this->faker->name()
         ];
     }
 }

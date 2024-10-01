@@ -17,7 +17,8 @@ class HealthFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'health_status' => 'Healthy',
+            'vaccinated' => true,
         ];
     }
 }

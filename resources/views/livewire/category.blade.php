@@ -22,7 +22,11 @@
 
         <div class="grid grid-cols-2 gap-5 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3">
             @foreach ($data as $pet)
-            <x-pet-container :breed="$pet->breed" :gender="$pet->gender" :price="$pet->pricingAvailability->price" :source="$pet->images[0]['name']" />
+            <x-pet-container :breed="$pet->breed"
+                :id="$pet->id"
+                :gender="$pet->gender"
+                :price="$pet->pricingAvailability->price"
+                :source="$pet->images[0]['name']" />
             @endforeach
         </div>
     </div>
