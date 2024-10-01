@@ -164,32 +164,6 @@ class PetResource extends Resource
             ]);
     }
 
-    public static function infolist(Infolist $infolist): Infolist
-    {
-        return $infolist
-            ->schema([
-                Tabs::make('Tabs')
-                    ->tabs([
-                        Tabs\Tab::make('View Information about pet')
-                            ->schema([
-                                TextEntry::make('name'),
-                                TextEntry::make('breed'),
-                                TextEntry::make('gender'),
-                                TextEntry::make('date_of_birth'),
-                                TextEntry::make('color'),
-                                TextEntry::make('size'),
-                                TextEntry::make('weight'),
-                            ])->columns(2),
-                        Tabs\Tab::make('Edit pet')
-                            ->schema([
-                               //Still working on this
-                            ]),
-                    ])
-                    ->activeTab(1)
-                    ->columnSpanFull()
-            ]);
-    }
-
     public static function getRelations(): array
     {
         return [

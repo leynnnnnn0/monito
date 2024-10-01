@@ -7,6 +7,9 @@ use App\Models\Image;
 use App\Models\Pet;
 use Carbon\Carbon;
 use Filament\Actions;
+use Filament\Infolists\Components\Tabs;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
@@ -48,7 +51,7 @@ class EditPet extends EditRecord
                 'availability_status' => $data['availability_status'],
                 'adoption_status' => $data['adoption_status'],
             ]);
-            // Additional Information 
+            // Additional Information
             if ($data['description'] || $data['previous_owner']) {
                 $record->additionalInfo()->update([
                     'description' => $data['description'] ?? null,

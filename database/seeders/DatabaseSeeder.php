@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Customer;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -19,6 +20,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@example.com',
             'password' => 'adminadmin'
+        ]);
+
+        Customer::factory()->create([
+            'first_name' => 'john',
+            'last_name' => 'doe',
+            'email' => 'johndoe@example.com',
+            'password' => 'password'
         ]);
 
         $this->call(PetSeeder::class);
