@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomePage::class)->name('home-page');
 Route::get('/category', Category::class)->name('category');
-Route::get('/category/show', Show::class)->name('category.name');
+Route::get('/category/show/{id}', Show::class)->name('category.show');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

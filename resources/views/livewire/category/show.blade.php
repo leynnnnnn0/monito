@@ -2,19 +2,17 @@
     <x-navigation class="md:flex hidden" />
     <section class="md:flex gap-10 p-2 2xl:px-80 lg:px-24">
         <section class="h-auto md:w-[500px] rounded-lg">
-            <img class="md:rounded-lg h-80 w-full" src="{{ Vite::asset('resources/images/shiba.png')}}" alt="dog">
+            <img class="md:rounded-lg h-80 w-full" src="{{ asset('storage/' . $pet->images[0]->name) }}" alt="dog">
             <section class="grid grid-cols-5 p-2">
-                <img class="size-14 rounded-lg" src="{{ Vite::asset('resources/images/shiba.png')}}" alt="dog">
-                <img class="size-14 rounded-lg" src="{{ Vite::asset('resources/images/shiba.png')}}" alt="dog">
-                <img class="size-14 rounded-lg" src="{{ Vite::asset('resources/images/shiba.png')}}" alt="dog">
-                <img class="size-14 rounded-lg" src="{{ Vite::asset('resources/images/shiba.png')}}" alt="dog">
-                <img class="size-14 rounded-lg" src="{{ Vite::asset('resources/images/shiba.png')}}" alt="dog">
+                @foreach ($pet->images as $image)
+                <img class="size-14 rounded-lg" src="{{ asset('storage/' . $image->name)}}" alt="dog">
+                @endforeach
             </section>
         </section>
-        <section class="space-y-2">
+        <section class="space-y-2 min-w-[400px]">
             <section class="flex flex-col">
-                <strong clasas="text-3xl">Shiba Inu Sepia</strong>
-                <span class="font-bold text-text-primary">$12,500.00</span>
+                <strong clasas="text-3xl">{{ $pet->breed}}</strong>
+                <span class="font-bold text-text-primary">${{Number::format($pet->pricingAvailability->price, 2) }}</span>
                 <div class="flex items-center gap-2">
                     <button class="w-full mt-3 rounded-full text-text-primary sm:text-medium border border-text-primary px-6 py-2 xl:text-lg md:text-xs text-sm">
                         Add to Cart
@@ -28,11 +26,11 @@
                 <h1 class="text-text-primary font-bold">Information</h1>
                 <div class="flex items-center justify-between border-b border-black/10 py-2 text-gray-500 text-xs">
                     <span class="flex-1">Pet ID: </span>
-                    <span class="flex-1">#42134793</span>
+                    <span class="flex-1">#{{ $pet->id }}</span>
                 </div>
                 <div class="flex items-center justify-between border-b border-black/10 py-2 text-gray-500 text-xs">
                     <span class="flex-1">Gender: </span>
-                    <span class="flex-1">Female</span>
+                    <span class="flex-1">{{ $pet->gender }}</span>
                 </div>
                 <div class="flex items-center justify-between border-b border-black/10 py-2 text-gray-500 text-xs">
                     <span class="flex-1">Age: </span>
@@ -40,25 +38,19 @@
                 </div>
                 <div class="flex items-center justify-between border-b border-black/10 py-2 text-gray-500 text-xs">
                     <span class="flex-1">Size: </span>
-                    <span class="flex-1">Small</span>
+                    <span class="flex-1">{{ $pet->size}}</span>
                 </div>
                 <div class="flex items-center justify-between border-b border-black/10 py-2 text-gray-500 text-xs">
                     <span class="flex-1">Color: </span>
-                    <span class="flex-1">Appricot & Tan</span>
+                    <span class="flex-1">{{ $pet->color }}</span>
                 </div>
                 <div class="flex items-center justify-between border-b border-black/10 py-2 text-gray-500 text-xs">
-                    <span class="flex-1">Vacinated: </span>
-                    <span class="flex-1">True</span>
-                </div>
-                <div class="flex items-center justify-between border-b border-black/10 py-2 text-gray-500 text-xs">
-                    <span class="flex-1">Dewormed: </span>
-                    <span class="flex-1">True</span>
+                    <span class="flex-1">Vaccinated: </span>
+                    <span class="flex-1">{{ $pet->health->vaccinated ? 'Yes' : 'No' }}</span>
                 </div>
                 <div class="flex items-center justify-between border-b border-black/10 py-2 text-gray-500 text-xs">
                     <span class="flex-1">Additional Information: </span>
-                    <span class="flex-1">Pure breed Shih Tzu.
-                        Good body structure.
-                        With MKA cert and microchip. Father from champion lineage.</span>
+                    <span class="flex-1">{{ $pet->additionalInfo ? $pet->additionalInfo->description : 'None' }}.</span>
                 </div>
             </section>
         </section>

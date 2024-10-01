@@ -24,14 +24,13 @@
             <a href="" class="text-sm md:flex px-3 items-center justify-center border border-text-primary text-text-primary py-1 rounded-full hidden">View more <x-phosphor-caret-right class="h-[20px]" /></a>
         </section>
         <section class="grid gap-2 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-3 grid-cols-2">
-            <x-pet-container />
-            <x-pet-container />
-            <x-pet-container />
-            <x-pet-container />
-            <x-pet-container />
-            <x-pet-container />
-            <x-pet-container />
-            <x-pet-container />
+            @foreach ($data as $pet)
+            <x-pet-container :breed="$pet->breed"
+                :id="$pet->id"
+                :gender="$pet->gender"
+                :price="$pet->pricingAvailability->price"
+                :source="$pet->images[0]['name']" />
+            @endforeach
         </section>
         <a href="" class="md:hidden flex w-full items-center justify-center border border-text-primary text-text-primary py-2 rounded-full">View more <x-phosphor-caret-right class="h-[20px]" /></a>
     </section>

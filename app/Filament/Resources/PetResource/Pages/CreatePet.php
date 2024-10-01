@@ -38,12 +38,10 @@ class CreatePet extends CreateRecord
                 'adoption_status' => $data['adoption_status'],
             ]);
             // Additional Information 
-            if ($data['description'] || $data['previous_owner']) {
-                $pet->additionalInfo()->create([
-                    'description' => $data['description'] ?? null,
-                    'previous_owner' => $data['previous_owner'] ?? null,
-                ]);
-            }
+            $pet->additionalInfo()->create([
+                'description' => $data['description'] ?? null,
+                'previous_owner' => $data['previous_owner'] ?? null,
+            ]);
             // Documents
             if ($data['Documents'][0]['document_name']) {
                 foreach ($data['Documents'] as $document) {
