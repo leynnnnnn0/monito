@@ -27,4 +27,9 @@ class Customer extends Authenticatable
             'password' => 'hashed'
         ];
     }
+
+    public function getRedirectRoute()
+    {
+        return 'home-page';
+    }
 }

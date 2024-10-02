@@ -1,4 +1,5 @@
 <?php
+
 use App\Livewire\Forms\LoginForm;
 use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
@@ -19,7 +20,7 @@ new #[Layout('layouts.guest')] class extends Component
 
         Session::regenerate();
 
-        $this->redirectIntended(default: route('home-page', absolute: false), navigate: true);
+        $this->redirectIntended(default: route('/', absolute: false), navigate: true);
     }
 }; ?>
 
