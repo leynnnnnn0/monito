@@ -12,7 +12,11 @@
         <x-nav-link href="/my-cart">
             <x-bi-cart-fill class="text-text-primary font-bold mr-4" />
         </x-nav-link>
+        @if(auth('customer')->check())
+        <button class="text-text-primary font-bold">Logout</button>
+        @else
         <a class="text-text-primary font-bold">Register</a>
-        <a class="px-4 py-1 text-white bg-text-primary font-bold rounded-full">Login</a>
+        <a href="/login" class="cursor-pointer px-4 py-1 text-white bg-text-primary font-bold rounded-full" wire:navigate>Login</a>
+        @endif
     </section>
 </nav>
