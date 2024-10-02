@@ -1,20 +1,3 @@
-<?php
-
-use App\Livewire\Actions\Logout;
-use Livewire\Volt\Component;
-
-new class extends Component
-{
-    /**
-     * Log the current user out of the application.
-     */
-    public function logout(Logout $logout): void
-    {
-        $logout();
-
-        $this->redirect('/', navigate: true);
-    }
-}; ?>
 <nav {{ $attributes->merge(['class' => 'flex items-center justify-between bg-tranparent p-5 2xl:px-80 lg:px-24 md:h-24 h-16'])}}>
     <img class="size-[80px]" src="{{ Vite::asset('resources/images/logo.svg') }}" alt="logo">
     <!-- Menu icon for mobile view -->
@@ -30,7 +13,7 @@ new class extends Component
             <x-bi-cart-fill class="text-text-primary font-bold mr-4" />
         </x-nav-link>
         @if(auth('customer')->check())
-        <button wire:click="logout" class="text-text-primary font-bold">Logout</button>
+        <button class="text-text-primary font-bold">Logout</button>
         @else
         <a class="text-text-primary font-bold">Register</a>
         <a href="/login" class="cursor-pointer px-4 py-1 text-white bg-text-primary font-bold rounded-full" wire:navigate>Login</a>
