@@ -14,8 +14,16 @@
                 <strong clasas="text-3xl">{{ $pet->breed}}</strong>
                 <span class="font-bold text-text-primary">${{Number::format($pet->pricingAvailability->price, 2) }}</span>
                 <div class="flex items-center gap-2">
-                    <button wire:click="addToCart('{{$pet->id}}')" class="w-full mt-3 rounded-full text-text-primary sm:text-medium border border-text-primary px-6 py-2 xl:text-lg md:text-xs text-sm">
-                        Add to Cart
+                    <button wire:click="addToCart('{{$pet->id}}')" class="w-full mt-3 rounded-full text-text-primary sm:text-medium border border-text-primary px-6 py-2 xl:text-lg md:text-xs text-sm" wire:loading.remove>
+                        Add To Cart
+                    </button>
+                    <button disabled class="flex items-center justify-center w-full mt-3 rounded-full text-text-primary sm:text-medium border border-text-primary px-6 py-2 xl:text-lg md:text-xs text-sm" wire:loading>
+                        <span class="flex items-center justify-center">
+                            <svg class="animate-spin h-6 w-6 text-text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </span>
                     </button>
                     <button class="w-full mt-3 rounded-full text-white sm:text-medium bg-text-primary px-6 py-2 xl:text-lg md:text-xs text-sm">
                         Buy Now
