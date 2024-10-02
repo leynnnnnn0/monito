@@ -16,7 +16,7 @@
         <button class="text-text-primary font-bold">Logout</button>
         @else
         <a class="text-text-primary font-bold">Register</a>
-        <a href="/login" class="cursor-pointer px-4 py-1 text-white bg-text-primary font-bold rounded-full" wire:navigate>Login</a>
+        <x-primary-button href="/login">Login</x-primary-button>
         @endif
     </section>
 </nav>
