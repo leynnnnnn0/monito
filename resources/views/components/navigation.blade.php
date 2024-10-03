@@ -1,4 +1,4 @@
-<nav {{ $attributes->merge(['class' => 'flex items-center justify-between bg-tranparent p-5 2xl:px-80 lg:px-24 md:h-24 h-16'])}}>
+<nav {{ $attributes->merge(['class' => 'shadow-lg flex items-center justify-between bg-tranparent p-5 2xl:px-80 lg:px-24 md:h-24 h-16'])}}>
     <img class="size-[80px]" src="{{ Vite::asset('resources/images/logo.svg') }}" alt="logo">
     <!-- Menu icon for mobile view -->
     <x-ionicon-menu class="md:hidden size-8" />
@@ -7,6 +7,7 @@
         <x-nav-link :active="request()->is('category')" href="/category">Category</x-nav-link>
         <x-nav-link :active="request()->is('about')">About</x-nav-link>
         <x-nav-link :active="request()->is('contact')">Contact</x-nav-link>
+        <x-nav-link :active="request()->is('customer')" href="/customer">My Account</x-nav-link>
     </section>
     <section class="items-center gap-2 md:flex hidden">
         <x-nav-link href="/my-cart">
