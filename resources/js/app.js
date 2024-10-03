@@ -1,11 +1,8 @@
-import "./bootstrap";
+import './bootstrap';
 import.meta.glob(["../images/**"]);
-import {
-    Alpine,
-    Livewire,
-} from "../../vendor/livewire/livewire/dist/livewire.esm";
-import ToastComponent from "../../vendor/usernotnull/tall-toasts/resources/js/tall-toasts";
+import {Alpine, Livewire} from '../../vendor/livewire/livewire/dist/livewire.esm';
+import ToastComponent from '../../vendor/usernotnull/tall-toasts/resources/js/tall-toasts'
 
-Alpine.plugin(ToastComponent);
+Alpine.plugin(ToastComponent)
 
-Livewire.start();
+Livewire.start()
