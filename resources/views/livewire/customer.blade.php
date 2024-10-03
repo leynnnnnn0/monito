@@ -9,5 +9,8 @@
                 <x-bi-bag-fill class="sm:size-5 size-3" /> My Purchase
             </x-customer-nav-link>
         </nav>
+        <div class="flex-1 p-3">
+            <livewire:customer.my-purchase />
+        </div>
     </div>
 </div>
