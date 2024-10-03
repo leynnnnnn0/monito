@@ -16,6 +16,9 @@
 </head>
 
 <body class="antialiased font-gilroy">
+    <div class="flex justify-end">
+        <livewire:toasts />
+    </div>
     <main>
         {{ $slot }}
     </main>

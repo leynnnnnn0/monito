@@ -6,9 +6,7 @@
                 <h1 class="font-bold text-text-primary xl:7xl sm:text-5xl text-4xl">One More Friend</h1>
                 <p class="text-text-primary font-bold xl:4xl sm:text-2xl text-lg">Thousands More Fun!</p>
                 <span class="md:text-start xl:text-medium sm:text-center text-sm">Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 100+ different pets that can meet your needs!</span>
-                <a href="" class="mt-3 w-fit rounded-full text-white sm:text-medium bg-text-primary px-6 py-3 xl:text-lg md:text-xs text-xs" wire:navigate>
-                    Explore Now
-                </a>
+                <x-primary-button href="/login" class="xl:text-lg md:text-xs sm:text-medium mt-5 font-light">Explore Now</x-primary-button>
             </section>
             <img class="md:hidden w-full" src="{{ Vite::asset('resources/images/mobileBanner.svg')}}" alt="banner">
             <img class="md:flex hidden" src="{{ Vite::asset('resources/images/mainBanner.svg')}}" alt="banner">
@@ -44,9 +42,7 @@
                 <h3 class="text-text-primary font-bold sm:2xl text-xl">Thousands More Fun!</h3>
                 <span class="sm:text-medium text-xs">Having a pet means you have more joy, a new firend a happy person who will always be with you to have fun. We have 100+ different petsthat can meet your need!</span>
                 <div class="flex justify-center">
-                    <a href="" class="mt-5 text-white bg-text-primary px-6 py-3 w-fit rounded-full sm:text-sm text-xs" wire:navigate>
-                        Explore Now
-                    </a>
+                    <x-primary-button href="/login" class="xl:text-lg md:text-xs sm:text-medium mt-5 font-light">Explore Now</x-primary-button>
                 </div>
             </section>
             <img src="{{ Vite::asset('resources/images/mobileBanner2.svg')}}" alt="girl carrying a dog">
