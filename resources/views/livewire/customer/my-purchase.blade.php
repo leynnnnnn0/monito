@@ -1,7 +1,7 @@
 <div>
     <!-- Tab -->
-    <div class="w-full flex items-center justify-center">
-        <div class="h-fit p-3 rounded-lg bg-black/5 shadow-lg space-x-4">
+    <div class="w-full flex items-center justify-center md:h-24">
+        <div class="h-fit p-3 rounded-lg bg-black/5 shadow-lg space-x-2">
             <x-tab-option :active="true">
                 All
             </x-tab-option>
