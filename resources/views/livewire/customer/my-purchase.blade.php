@@ -1,4 +1,4 @@
-<div>
+<x-customer>
     <!-- Tab -->
     <div class="w-full flex items-center justify-center md:h-24">
         <div class="h-fit p-3 rounded-lg bg-black/5 shadow-lg space-x-2">
@@ -25,4 +25,4 @@
         <x-order-container />
         <x-order-container />
     </div>
-</div>
+</x-customer>
