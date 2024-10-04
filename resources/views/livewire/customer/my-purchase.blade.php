@@ -25,8 +25,4 @@
         <x-order-container />
         <x-order-container />
     </div>
-
-
-
-
 </div>
