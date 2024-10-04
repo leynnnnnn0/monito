@@ -1,0 +1,1 @@
+<img {{ $attributes->merge(['class' => 'size-[80px]'])}} src="{{ Vite::asset('resources/images/logo.svg') }}" alt="logo">
