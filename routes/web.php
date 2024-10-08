@@ -11,12 +11,6 @@ Route::get('/category', Category::class)->name('category');
 Route::get('/category/show/{id}', Show::class)->name('category.show');
 Route::get('/my-cart', Cart::class)->name('my-cart');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
-
+// Only what's for logged-in users
 require __DIR__ . '/auth.php';

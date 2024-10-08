@@ -18,7 +18,7 @@ class PetSeeder extends Seeder
      */
     public function run(): void
     {
-        $images = scandir(base_path() . '\\storage\\app\\public\\images');
+        $images = scandir(base_path() . '//storage//app//public//images');
         $imageData = [];
         foreach ($images as $image) {
             if ($image == '.' || $image == '..') continue;
