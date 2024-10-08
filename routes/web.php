@@ -16,12 +16,6 @@ Route::get('/my-cart', Cart::class)->name('my-cart');
 Route::get('/customer', MyProfile::class)->name('customer');
 Route::get('/my-purchase', MyPurchase::class)->name('my-purchase');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
-
+// Only what's for logged-in users
 require __DIR__ . '/auth.php';
