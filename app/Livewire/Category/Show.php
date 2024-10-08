@@ -4,9 +4,11 @@ namespace App\Livewire\Category;
 
 use App\Models\Pet;
 use Livewire\Component;
+use Usernotnull\Toast\Concerns\WireToast;
 
 class Show extends Component
 {
+    use WireToast;
     public $items;
     public $pet;
 
@@ -17,14 +19,14 @@ class Show extends Component
 
     public function addToCart($itemId)
     {
-        // if 
+        $this->items = session('cart_items', []);
         $this->items[] = $itemId;
-        if (!session()->has('cart_items')) {
-            session()->put('cart_items', $this->items);
-        } else {
-            session()->put('cart_items', $this->items);
-        }
-        dd(session()->get('cart_items'));
+
+        // Update the session
+        session(['cart_items' => $this->items]);
+        toast()
+            ->success('Added Successfully!')
+            ->push();
     }
 
     public function render()

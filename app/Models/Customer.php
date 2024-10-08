@@ -2,16 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Customer extends Authenticatable
 {
-    use HasFactory, Notifiable;
-
-    protected $table = 'customers';
+    use HasFactory;
 
     protected $fillable = [
         'first_name',
@@ -29,5 +25,10 @@ class Customer extends Authenticatable
         return [
             'password' => 'hashed'
         ];
+    }
+
+    public function getRedirectRoute()
+    {
+        return 'home-page';
     }
 }
