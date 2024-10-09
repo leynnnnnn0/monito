@@ -3,13 +3,9 @@
 namespace App\Filament\Resources\PetResource\Pages;
 
 use App\Filament\Resources\PetResource;
-use App\Models\Image;
 use App\Models\Pet;
 use Carbon\Carbon;
 use Filament\Actions;
-use Filament\Infolists\Components\Tabs;
-use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Infolist;
 use Filament\Resources\Pages\EditRecord;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;

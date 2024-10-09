@@ -124,8 +124,13 @@ class PetResource extends Resource
 
                         Repeater::make('Images')->schema([
                             FileUpload::make('image_name')
+                                ->image()
+                                ->label('Image')
+                                ->disk('public')
+                                ->directory('pets/images')
                                 ->downloadable()
-                                ->directory('images')
+                                ->preserveFilenames()
+                                ->storeFileNamesIn('image')
                         ])
 
                     ])->columns(2)

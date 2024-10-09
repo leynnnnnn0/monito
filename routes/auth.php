@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Livewire\Customer\MyProfile;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -16,4 +17,6 @@ Route::middleware('auth:customer')->group(function () {
         ->name('password.confirm');
 
     Route::view('dashboard', 'dashboard')->name('dashboard');
+
+    Route::get('/customer', MyProfile::class)->name('customer');
 });
