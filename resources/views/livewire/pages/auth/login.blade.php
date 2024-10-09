@@ -28,7 +28,7 @@ new #[Layout('layouts.guest')] class extends Component
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form wire:submit="login">
+    <form wire:submit.prevent="login">
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -63,9 +63,13 @@ new #[Layout('layouts.guest')] class extends Component
             </a>
             @endif
 
-            <x-primary-button class="ms-3">
+{{--            <x-primary-button class="ms-3">--}}
+{{--                {{ __('Log in') }}--}}
+{{--            </x-primary-button>--}}
+
+            <button type="submit" class="ms-3 hover:bg-opacity-50 transition-colors duration-300 cursor-pointer px-4 py-1 text-white bg-text-primary font-bold rounded-full">
                 {{ __('Log in') }}
-            </x-primary-button>
+            </button>
         </div>
     </form>
 </div>
