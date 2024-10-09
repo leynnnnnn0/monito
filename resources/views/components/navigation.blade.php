@@ -7,16 +7,16 @@
         <x-nav-link :active="request()->is('category')" href="/category">Category</x-nav-link>
         <x-nav-link :active="request()->is('about')">About</x-nav-link>
         <x-nav-link :active="request()->is('contact')">Contact</x-nav-link>
-        <x-nav-link :active="request()->is('customer')" href="/customer">My Account</x-nav-link>
+        @if(auth('customer')->check()) <x-nav-link :active="request()->is('customer')" href="/customer">My Account</x-nav-link> @endif
     </section>
     <section class="items-center gap-2 md:flex hidden">
         <x-nav-link href="/my-cart">
             <x-bi-cart-fill class="text-text-primary font-bold mr-4" />
         </x-nav-link>
         @if(auth('customer')->check())
-        <button class="text-text-primary font-bold">Logout</button>
+            @livewire('logout')
         @else
-        <a class="text-text-primary font-bold">Register</a>
+        <a  href="/register" class="text-text-primary font-bold">Register</a>
         <x-primary-button href="/login">Login</x-primary-button>
         @endif
     </section>

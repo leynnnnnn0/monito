@@ -14,10 +14,9 @@ Route::get('/', HomePage::class)->name('home-page');
 Route::get('/category', Category::class)->name('category');
 Route::get('/category/show/{id}', Show::class)->name('category.show');
 Route::get('/my-cart', Cart::class)->name('my-cart');
-Route::get('/customer', MyProfile::class)->name('customer');
 Route::get('/my-purchase', MyPurchase::class)->name('my-purchase');
 
-Route::middleware(['guest', 'auth:customer'])->group(function () {
+Route::middleware('guest')->group(function () {
     Volt::route('register', 'pages.auth.register')
         ->name('register');
 
