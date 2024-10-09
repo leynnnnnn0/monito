@@ -21,7 +21,7 @@ class RedirectIfAuthenticated
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                 // Change this line to redirect to your desired page
-                return redirect('/home-page');
+                return redirect('/');
             }
         }
 
